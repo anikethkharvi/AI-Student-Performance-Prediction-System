@@ -4,16 +4,16 @@
 Group ID: G-06
 
 Team Members:
-- ABHIMANYU KOTARI – 1RUA24SCS0008
-- ANIKETH – 1RUA24SCS0008
-- DHANUSH V – 1RUA24SCS0031
+1. ABHIMANYU KOTARI – 1RUA24SCS0008
+2. ANIKETH – 1RUA24SCS0008
+3. DHANUSH V – 1RUA24SCS0031
 
 ## Project Description
-This project aims to predict student academic performance using machine learning techniques. The system analyzes student data such as attendance, marks, and study hours to predict performance levels.
+This project aims to predict student academic performance using machine learning techniques. The system analyzes student data such as attendance, internal marks, and study hours to predict student performance.
 
 ## Branches Used
 - main → Final project code
-- data-preprocessing → Data cleaning and preparation
+- data-preprocessing → Data cleaning and preprocessing
 - model-training → Machine learning model development
 - ui-development → User interface creation
 - documentation → Project documentation
