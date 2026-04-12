@@ -8,17 +8,26 @@ model = train_model()
 
 print("\nEnter Student Details:")
 
-attendance = int(input("Enter attendance (%): "))
-study_hours = int(input("Enter study hours per day: "))
-previous_marks = int(input("Enter previous marks: "))
+math = int(input("Enter math score: "))
+reading = int(input("Enter reading score: "))
+writing = int(input("Enter writing score: "))
+sleep = int(input("Enter sleep hours: "))
+stress = int(input("Enter stress level: "))
+social = int(input("Enter social media usage: "))
 
-# Create DataFrame (fix warning)
+# Create DataFrame
 new_data = pd.DataFrame(
-    [[attendance, study_hours, previous_marks]],
-    columns=["attendance", "study_hours", "previous_marks"]
+    [[math, reading, writing, sleep, stress, social]],
+    columns=[
+        "math score",
+        "reading score",
+        "writing score",
+        "sleep_hours",
+        "stress_level",
+        "social_media_usage"
+    ]
 )
 
-# Prediction
 prediction = model.predict(new_data)
 
 print("\nPrediction Result:")
