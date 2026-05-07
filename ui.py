@@ -1,49 +1,51 @@
 # ui.py
 
-# Import required libraries
 import pandas as pd
 from model import train_model
 
-# Train the machine learning model
+# Train model
 model = train_model()
 
 print("\nEnter Student Details:")
 
-# Taking user input for student features
-# These values will be used for prediction
+# User input
+math = int(input("Enter math score: "))
+reading = int(input("Enter reading score: "))
+writing = int(input("Enter writing score: "))
+sleep = int(input("Enter sleep hours: "))
+stress = int(input("Enter stress level: "))
+social = int(input("Enter social media usage: "))
 
-try:
-    math = int(input("Enter math score: "))
-    reading = int(input("Enter reading score: "))
-    writing = int(input("Enter writing score: "))
-    sleep = int(input("Enter sleep hours: "))
-    stress = int(input("Enter stress level: "))
-    social = int(input("Enter social media usage: "))
-except ValueError:
-    # Handle invalid input (non-numeric values)
-    print("Invalid input! Please enter numeric values only.")
-    exit()
+# Calculate average score
+average = (math + reading + writing) / 3
 
-# Creating a DataFrame from user input
-# This matches the format used during model training
+# Create DataFrame
 new_data = pd.DataFrame(
-    [[math, reading, writing, sleep, stress, social]],
+    [[
+        math,
+        reading,
+        writing,
+        average,
+        stress,
+        sleep,
+        social
+    ]],
     columns=[
         "math score",
         "reading score",
         "writing score",
-        "sleep_hours",
+        "average_score",
         "stress_level",
+        "sleep_hours",
         "social_media_usage"
     ]
 )
 
-# Predict student performance using trained model
+# Predict
 prediction = model.predict(new_data)
 
 print("\nPrediction Result:")
 
-# Display result based on prediction output
 if prediction[0] == 1:
     print("Student Performance: GOOD")
 else:

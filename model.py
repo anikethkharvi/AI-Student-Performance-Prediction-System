@@ -8,16 +8,26 @@ def train_model():
 
     print("Model training started...")
 
-    # Load dataset
+    # Load cleaned dataset
     data = pd.read_csv("student_data_cleaned.csv")
 
-    # Features and target
-    X = data.drop("performance", axis=1)
+    # Select features and target
+    X = data[[
+        "math score",
+        "reading score",
+        "writing score",
+        "average_score",
+        "stress_level",
+        "sleep_hours",
+        "social_media_usage"
+    ]]
+
     y = data["performance"]
 
     # Split dataset
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y,
+        X,
+        y,
         test_size=0.2,
         random_state=42
     )
@@ -30,7 +40,3 @@ def train_model():
     print("Model trained successfully!")
 
     return model
-
-
-if __name__ == "__main__":
-    train_model()
